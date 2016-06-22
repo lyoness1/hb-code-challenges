@@ -30,6 +30,28 @@ Examples::
 def is_anagram_of_palindrome(word):
     """Is the word an anagram of a palindrome?"""
 
+    # Keep track of character counts in a dictionary
+    chars = {}
+    for ch in word:
+        if ch in chars:
+            chars[ch] += 1
+        else:
+            chars[ch] = 1
+
+    # If ana-of-pal, char count will be even, with one odd OK. 
+    odd_counts = 0
+    for count in chars.values():
+        if count % 2 != 0:
+            odd_counts += 1
+
+    # Determine palindrominess
+    if odd_counts <= 1:
+        return True
+
+    return False
+
+
+
 
 if __name__ == '__main__':
     import doctest
