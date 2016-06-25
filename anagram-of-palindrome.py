@@ -4,6 +4,8 @@ A palindrome is a word that reads the same forward and backwards
 (eg, "racecar", "tacocat"). An anagram is a rescrambling of a word
 (eg for "racecar", you could rescramble this as "arceace").
 
+I'm adding a line of comment here just to test some git stuff... 
+
 Determine if the given word is a re-scrambling of a palindrome.
 The word will only contain lowercase letters, a-z.
 
