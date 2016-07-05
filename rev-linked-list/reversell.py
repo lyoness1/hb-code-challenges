@@ -27,14 +27,14 @@ class Node(object):
         '321'
         """
 
-        out = []
+        output = []
         n = self
 
         while n:
             out.append(str(n.data))
             n = n.next
 
-        return "".join(out)
+        return "".join(output)
 
 
 def reverse_linked_list_iteratively(head):
