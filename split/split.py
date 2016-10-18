@@ -13,7 +13,7 @@ For example:
     ['that is which is', 'which is that']
 
     >>> split("that is which is that which is that", "that")
-    ['', ' is which is ', ' which is ', '']
+    ['', ' is which is ', ' which is ']
 
     >>> split("hello world", "nope")
     ['hello world']
@@ -27,6 +27,30 @@ For example:
 
 def split(astring, splitter):
     """Split astring by splitter and return list of splits."""
+
+    # list to store return value
+    ret = []
+    
+    # index over input string
+    i = 0
+    while i < (len(astring)):
+        start_idx = i
+        i = astring.find(splitter, i)
+
+        if i != -1:
+            ret.append(astring[start_idx:i])
+            i += len(splitter) 
+
+        else: 
+            ret.append(astring[start_idx:])
+            break
+
+    return ret
+
+
+
+
+
 
 
 if __name__ == '__main__':
