@@ -26,6 +26,26 @@ def sort_ab(a, b):
     You may not use sorted() or .sort().
     """
 
+    ret = []
+
+    while a or b:
+        if not a:
+            ret.extend(b)
+            break
+
+        elif not b: 
+            ret.extend(a)
+            break
+
+        if a[0] <= b[0]:
+            ret.append(a.pop(0))
+
+        else:
+            ret.append(b.pop(0))
+
+    return ret
+
+
 
 if __name__ == '__main__':
     import doctest
