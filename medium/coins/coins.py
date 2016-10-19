@@ -38,6 +38,19 @@ def coins(num_coins):
     This should return a set of the unique amounts of change possible.
     """
 
+    output = set()
+
+    for num_pennies in xrange(num_coins + 1):
+        output.add(num_pennies + (num_coins - num_pennies) * 10)
+
+    return output
+
+
+
+
+
+
+
 
 if __name__ == '__main__':
     import doctest
