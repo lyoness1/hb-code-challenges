@@ -46,16 +46,16 @@ def dec2bin_forwards(dec):
         i += 1
 
     # extract powers of 2 from dec, appending 0 or 1 to result array
-    out = []
+    out = ""
     for bit in xrange(i - 1, -1, -1):
         if 2 ** bit <= dec:
-            out.append("1")
+            out += "1"
             dec -= 2 ** bit
         else:
-            out.append("0")
+            out += "0"
 
     # convert to string to remove leading 0's, then back to string
-    return str(int("".join(out)))
+    return str(int(out))
 
 
 
