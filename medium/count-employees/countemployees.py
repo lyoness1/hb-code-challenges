@@ -33,7 +33,13 @@ And test our counting function::
 We provide a non-recursive version, let's make sure that gives the same
 answer::
 
-    >>> jane.count_employees_nonrecursive()
+    >>> henri.count_recursively()
+    0
+
+    >>> nora.count_recursively()
+    1
+
+    >>> jane.count_recursively()
     8
 
 """
@@ -53,6 +59,41 @@ class Node(object):
         include *everyone* under them, not just people who directly report to
         them.
         """
+
+        count = 0
+        to_visit = [self]
+
+        while to_visit:
+            emp = to_visit.pop()
+
+            for child in emp.children:
+                count += 1
+                to_visit.append(child)
+
+        return count
+
+
+    def count_recursively(self):
+        """Return a count of how many employees this person manages.
+
+        Return a count of how many people that manager manages. This should
+        include *everyone* under them, not just people who directly report to
+        them.
+        """
+        
+        count = 0
+        
+        for child in self.children:
+            count += 1 + child.count_recursively()
+
+        return count
+
+
+
+
+
+
+
 
 
 if __name__ == '__main__':
