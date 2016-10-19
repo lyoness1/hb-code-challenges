@@ -89,21 +89,43 @@ class CircularArray(object):
 
     def __init__(self):
         """Instantiate CircularArray."""
+        self.contents = []
+        self.head = None
 
     def add_item(self, item):
         """Add item to array, at the end of the current rotation."""
+        if not self.head:
+            self.contents.append(item)
+            self.head = 0
+        else:
+            self.contents.insert(self.head, item)
+            self.head += 1
 
     def get_by_index(self, index):
         """Return the data at a particular index."""
+        if index >= len(self.contents):
+            return None
+        return self.contents[((self.head + index) % len(self.contents))]
 
     def rotate(self, increment):
         """Rotate array, positive for right, negative for left.
 
         If increment is greater than list length, keep going around.
         """
+        if not len(self.contents):
+            return
+
+        else:
+            self.head = (self.head + increment) % len(self.contents)
+
 
     def print_array(self):
         """Print the circular array items in order, one per line"""
+
+        for i in xrange(len(self.contents)):
+            print self.get_by_index(i)
+
+
 
 if __name__ == "__main__":
     print
