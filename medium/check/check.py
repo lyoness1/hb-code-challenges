@@ -53,6 +53,35 @@ def check(king, queen):
     These coordinates are given as a letter A-H for the columns and 1-8 for the
     row, like "D6" and "B7":
     """
+    letter_to_num = {
+        'A': 0,
+        'B': 1,
+        'C': 2,
+        'D': 3,
+        'E': 4,
+        'F': 5,
+        'G': 6,
+        'H': 7
+    }
+
+    k_row, k_col = 8 - int(king[1]), letter_to_num[king[0]]
+    q_row, q_col = 8 - int(queen[1]), letter_to_num[queen[0]]
+
+    if k_row == q_row or k_col == q_col:
+        return True
+
+    if abs(k_row - q_row) == abs(k_col - q_col):
+        return True
+
+    return False
+
+
+
+
+
+
+
+
 
 
 if __name__ == '__main__':
