@@ -27,10 +27,7 @@ the 3 spaces that came after world, etc:
 def rev(s):
     """Reverse word-order in string, preserving spaces."""
 
-    words = s.split(" ")
-    words.reverse()
-    return " ".join(words)
-
+    return " ".join(reversed(s.split()))
 
 
 if __name__ == '__main__':
