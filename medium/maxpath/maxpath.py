@@ -107,7 +107,7 @@ def maxpath(nodes):
     # this is a dynamic memoization of a tree
     # find best path and attach it to each node on the way down
     for n in nodes:
-        # root node has no best
+        # root node has no best path except itself
         if not n.parents:
             n.best = n.value
         # go down to bottom finding max path for each node
